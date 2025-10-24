@@ -1,165 +1,234 @@
-
-body .bottom_bar{
-    z-index: 0;
+/* === GŁÓWNE USTAWIENIA === */
+html, body {
+	width: 100%;
+	max-width: 100%;
+	overflow-x: hidden;
+	margin: 0;
+	padding: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+	background-color: #f6f8ff;
+	color: #1a1a1a;
 }
 
-.container{
-    width: 98%;
-    margin-left: auto;
-    margin-right: auto;
-    height: max-content;
+/* === DOLNY PASEK === */
+body .bottom_bar {
+	z-index: 0;
 }
 
-.main_title{
-    font-size: 30px;
-    font-weight: bold;
-    margin-top: 50px;
-    margin-bottom: 0;
+/* === KONTAINER === */
+.container {
+	width: 94%;
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 20px 0 90px;
+	height: max-content;
+	box-sizing: border-box;
 }
 
-.description{
-    font-weight: 400;
+/* === NAGŁÓWKI === */
+.main_title {
+	font-size: 26px;
+	font-weight: 700;
+	margin-top: 40px;
+	margin-bottom: 4px;
+	text-align: left;
 }
 
-.action_grid{
-    margin-top: 30px;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: max-content max-content;
-    height: max-content;
-    width: 100%;
+.description {
+	font-weight: 400;
+	color: #555;
+	margin: 0 0 25px 0;
+	text-align: left;
 }
 
-.action{
-    background-color: white;
-    border-radius: 15px;
-    width: 100%;
-    height: 90px;
-    display: grid;
-    margin-top: 0;
-    margin-bottom: 10px;
-    grid-template-columns: 15% 75% 10%;
+/* === UKŁAD PRZYCISKÓW === */
+.action_grid {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	margin-top: 25px;
+	width: 100%;
+	height: auto;
 }
 
-.action_image{
-    width: 35px;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 20px;
+/* === POJEDYNCZY PRZYCISK === */
+.action {
+	background-color: #fff;
+	border-radius: 15px;
+	width: 100%;
+	min-height: 82px;
+	display: grid;
+	grid-template-columns: 15% 70% 15%;
+	align-items: center;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+	transition: background 0.15s ease;
 }
 
-.action_text{
-    display: grid;
-    grid-template-columns: 100%;
-    width: max-content;
-    height: max-content;
-    grid-template-rows: max-content max-content;
-    margin-top: auto;
-    margin-bottom: auto;
+.action:hover {
+	background-color: #f1f4ff;
 }
 
-.action_title{
-    margin-top: auto;
-    margin-bottom: auto;
-    height: max-content;
-    font-weight: 500;
-    font-size: 18px;
+/* === IKONA PO LEWEJ === */
+.action_image {
+	width: 34px;
+	height: 34px;
+	margin-left: 16px;
+	object-fit: contain;
 }
 
-.action_subtitle{
-    margin-top: auto;
-    margin-bottom: auto;
-    height: max-content;
-    font-weight: 400;
-    font-size: 15px;
+/* === TEKST W ŚRODKU === */
+.action_text {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 3px;
+	margin-left: 4px;
 }
 
-.arrow{
-    width: 20px;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-right: 15px !important;
+.action_title {
+	font-weight: 600;
+	font-size: 17px;
+	margin: 0;
+	color: #1a1a1a;
 }
 
-.error{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    width: 0%;
+.action_subtitle {
+	font-weight: 400;
+	font-size: 14px;
+	margin: 0;
+	color: #777;
 }
 
-.error_box{
-    width: 80%;
-    height: 230px;
-    border-radius: 15px;
-    background-color: white;
-    position: fixed;
-    top: -2000px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: auto;
-    margin-right: auto;
-    transition: 400ms;
+/* === STRZAŁKA === */
+.arrow {
+	width: 18px;
+	margin-right: 14px;
+	opacity: 0.5;
+	justify-self: end;
 }
 
-.error_title{
-    opacity: 0.9;
-    font-size: 25px;
-    margin-left: 10px;
-    margin-top: 30px;
-    margin-bottom: 0px;
-    font-weight: bold;
-    text-align: center;
+/* === OKNO BŁĘDU === */
+.error {
+	position: fixed;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	display: none;
 }
 
-.error_description{
-    margin-top: 10px;
-    margin-bottom: 0;
-    font-size: 15px;
-    width: 80%;
-    margin-left: 10px;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+.error_box {
+	width: 85%;
+	max-width: 360px;
+	min-height: 220px;
+	border-radius: 15px;
+	background-color: #fff;
+	position: fixed;
+	top: -2000px;
+	left: 50%;
+	transform: translateX(-50%);
+	margin: auto;
+	transition: 400ms;
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
-.error_button{
-    background-color: var(--text);
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 50px;
-    height: 50px;
-    border-radius: 25px;
-    text-align: center;
-    color: white;
-    font-size: 18px;
-    font-weight: 600;
-    margin-top: 30px;
+/* === TEKST BŁĘDU === */
+.error_title {
+	opacity: 0.9;
+	font-size: 22px;
+	margin: 30px 0 8px;
+	font-weight: 700;
+	text-align: center;
 }
 
-.opacity{
-    background-color: black;
-    opacity: 0;
-    width: 100%;
-    height: 100%;
-    transition: 200ms;
+.error_description {
+	font-size: 15px;
+	width: 82%;
+	margin: 0 auto;
+	text-align: center;
+	color: #444;
 }
 
-.error_open{
-    width: 100%;
+/* === PRZYCISK W BŁĘDZIE === */
+.error_button {
+	background-color: var(--text, #0057ff);
+	width: 80%;
+	max-width: 260px;
+	margin: 28px auto 0;
+	line-height: 50px;
+	height: 50px;
+	border-radius: 25px;
+	text-align: center;
+	color: white;
+	font-size: 17px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: opacity 0.2s;
 }
 
-.error_open .opacity{
-    opacity: 0.7;
+.error_button:hover {
+	opacity: 0.9;
 }
 
-.error_open .error_box{
-    top: 0;
+/* === OPACITY TŁA === */
+.opacity {
+	background-color: rgba(0, 0, 0, 0);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	inset: 0;
+	transition: background-color 0.2s ease;
+}
+
+/* === AKTYWNE OKNO BŁĘDU === */
+.error_open {
+	display: block;
+}
+
+.error_open .opacity {
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.error_open .error_box {
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/* === RESPONSYWNOŚĆ === */
+@media (max-width: 480px) {
+	.main_title {
+		font-size: 22px;
+		margin-top: 30px;
+	}
+
+	.action {
+		min-height: 76px;
+		grid-template-columns: 17% 68% 15%;
+	}
+
+	.action_image {
+		width: 30px;
+		margin-left: 14px;
+	}
+
+	.action_title {
+		font-size: 16px;
+	}
+
+	.action_subtitle {
+		font-size: 13px;
+	}
+
+	.error_box {
+		width: 90%;
+		max-width: 320px;
+	}
+
+	.error_title {
+		font-size: 20px;
+	}
+
+	.error_description {
+		font-size: 14px;
+	}
 }
