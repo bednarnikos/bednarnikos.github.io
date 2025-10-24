@@ -129,7 +129,7 @@
             cursor: pointer;
         }
 
-/* === MODAL z QR === */
+/* === MODAL z QR (mobilny, jasny motyw) === */
 #qr_modal {
     display: none;
     position: fixed;
@@ -143,50 +143,51 @@
     align-items: center;
     text-align: center;
     z-index: 999;
-    padding: 70px 20px 140px;
+    padding: 50px 15px 100px;
     overflow-y: auto;
+    box-sizing: border-box;
 }
 
 .qr_title {
-    font-size: 26px;
+    font-size: 20px;
     font-weight: 700;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 8px;
     color: #1b1b1b;
 }
 
 .qr_subtitle {
-    font-size: 15px;
+    font-size: 14px;
     color: #555;
-    max-width: 340px;
-    margin: 0 auto 35px;
-    line-height: 1.55;
+    max-width: 90%;
+    margin: 0 auto 25px;
+    line-height: 1.45;
 }
 
 #qrcode {
-    background: white;
-    padding: 18px;
-    border-radius: 18px;
-    margin: 20px auto 15px;
-    width: 260px;
-    height: 260px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    background: #fff;
+    padding: 10px;
+    border-radius: 14px;
+    margin: 10px auto;
+    width: 200px;
+    height: 200px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
 }
 
 .code-number {
-    font-size: 40px;
+    font-size: 28px;
     font-weight: 700;
     color: #000;
-    letter-spacing: 3px;
-    margin-top: 12px;
+    letter-spacing: 2px;
+    margin-top: 10px;
 }
 
 .progress-bar {
-    width: 85%;
-    height: 6px;
+    width: 80%;
+    height: 5px;
     background-color: #e6e6e6;
     border-radius: 3px;
-    margin: 30px auto 0;
+    margin: 25px auto 0;
     overflow: hidden;
 }
 
@@ -198,41 +199,59 @@
 }
 
 .expire-text {
-    font-size: 14px;
+    font-size: 13px;
     color: #666;
-    margin-top: 14px;
+    margin-top: 10px;
 }
 
 .flags {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 35px;
-    margin-top: 45px;
+    gap: 25px;
+    margin-top: 35px;
 }
 
 .flags img {
-    width: 56px;
+    width: 42px;
     height: auto;
-    border-radius: 6px;
+    border-radius: 5px;
 }
 
 #close_qr {
-    background: #f2f4ff;
+    background: #f3f5ff;
     border: none;
     color: #0057ff;
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 600;
-    border-radius: 12px;
-    margin-top: 55px;
+    border-radius: 10px;
+    margin-top: 40px;
     cursor: pointer;
-    padding: 12px 28px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-    transition: 0.2s;
+    padding: 10px 24px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+    transition: background 0.2s;
 }
 
 #close_qr:hover {
     background: #e9edff;
+}
+
+/* === Responsywność dla mniejszych ekranów === */
+@media (max-height: 700px) {
+    #qrcode {
+        width: 170px;
+        height: 170px;
+    }
+    .code-number {
+        font-size: 24px;
+    }
+    .flags {
+        margin-top: 25px;
+        gap: 18px;
+    }
+    .flags img {
+        width: 36px;
+    }
 }
 
     </style>
