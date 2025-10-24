@@ -36,179 +36,127 @@
             margin-bottom: 25px;
         }
 
-        /* === MODAL z QR === */
-        #qr_modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #ffffff;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            text-align: center;
-            z-index: 999;
-            padding: 60px 20px 120px;
-        }
+        /* === MODAL z QR – biały, mobilny, „karta” === */
+#qr_modal {
+			display: none;
+			position: fixed;
+			inset: 0;
+			background: #ffffff;
+			z-index: 999;
+			padding: 24px 16px 90px;
+			box-sizing: border-box;
+			overflow-y: auto;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+		}
 
-        .qr_title {
-            font-size: 22px;
-            font-weight: 600;
-            margin-top: 10px;
-            margin-bottom: 8px;
-        }
+		.qr_title {
+			font-size: 22px;
+			font-weight: 700;
+			margin: 4px 0 6px;
+			color: #111;
+		}
 
-        .qr_subtitle {
-            font-size: 14px;
-            color: #555;
-            max-width: 300px;
-            margin: 0 auto 25px;
-            line-height: 1.45;
-        }
+		.qr_subtitle {
+			font-size: 14px;
+			color: #555;
+			line-height: 1.45;
+			max-width: 520px;
+			margin: 0 auto 16px;
+		}
 
-        #qrcode {
-            background: #fff;
-            padding: 10px;
-            border-radius: 14px;
-            margin: 10px auto;
-            width: 180px;
-            height: 180px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-        }
+		.qr_card {
+			width: min(92vw, 560px);
+			background: #fff;
+			border-radius: 22px;
+			box-shadow: 0 6px 24px rgba(0,0,0,.08);
+			padding: 18px 16px 16px;
+			margin: 10px auto 16px;
+			border: 1px solid #eef0f4;
+		}
 
-        .code-number {
-            font-size: 26px;
-            font-weight: 700;
-            color: #000;
-            letter-spacing: 2px;
-            margin-top: 8px;
-        }
+		#qrcode {
+			background: #fff;
+			padding: 12px;
+			border-radius: 14px;
+			width: 240px;
+			height: 240px;
+			margin: 6px auto 10px;
+			box-shadow: 0 2px 10px rgba(0,0,0,.06);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
 
-        .progress-bar {
-            width: 80%;
-            height: 4px;
-            background-color: #e6e6e6;
-            border-radius: 2px;
-            margin: 25px auto 0;
-            overflow: hidden;
-        }
+		.code-number {
+			font-size: 42px;
+			font-weight: 800;
+			letter-spacing: 3px;
+			color: #111;
+			margin: 6px 0 8px;
+		}
 
-        .progress-fill {
-            width: 100%;
-            height: 100%;
-            background-color: #0057ff;
-            transition: width 1s linear;
-        }
+		.progress-bar {
+			width: 92%;
+			height: 4px;
+			background: #e8edf6;
+			border-radius: 3px;
+			margin: 12px auto 0;
+			overflow: hidden;
+		}
 
-        .expire-text {
-            font-size: 12px;
-            color: #666;
-            margin-top: 10px;
-        }
+		.progress-fill {
+			width: 100%;
+			height: 100%;
+			background: #1b73ff;
+			transition: width 1s linear;
+		}
 
-        .flags {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 22px;
-            margin-top: 30px;
-        }
+		.expire-text {
+			font-size: 14px;
+			color: #4a4a4a;
+			margin: 10px 0 4px;
+		}
 
-        .flags img {
-            width: 40px;
-            height: auto;
-            border-radius: 4px;
-        }
+		.flags {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 26px;
+			margin-top: 10px;
+		}
 
-        #close_qr {
-            background: #f2f5ff;
-            border: none;
-            color: #0057ff;
-            font-size: 15px;
-            font-weight: 600;
-            border-radius: 10px;
-            margin-top: 40px;
-            cursor: pointer;
-            padding: 9px 22px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            transition: background 0.2s;
-        }
+		.flags img {
+			width: 46px;
+			border-radius: 5px;
+		}
 
-        #close_qr:hover {
-            background: #e8ecff;
-        }
+		#close_qr {
+			background: #f3f6ff;
+			border: 1px solid #e3e9ff;
+			color: #1b73ff;
+			font-size: 15px;
+			font-weight: 600;
+			border-radius: 10px;
+			padding: 10px 22px;
+			margin-top: 22px;
+			cursor: pointer;
+		}
 
-        /* Dostosowanie do mniejszych ekranów */
-        @media (max-height: 720px) {
-            #qrcode {
-                width: 150px;
-                height: 150px;
-            }
-            .code-number {
-                font-size: 22px;
-            }
-            .flags img {
-                width: 34px;
-            }
-            #close_qr {
-                margin-top: 30px;
-                font-size: 14px;
-            }
-        }
+		@media (max-width: 400px), (max-height: 720px) {
+			#qrcode {
+				width: 210px;
+				height: 210px;
+			}
 
+			.code-number {
+				font-size: 36px;
+				letter-spacing: 2px;
+			}
+		}
 
-        .code-number {
-            font-size: 30px;
-            font-weight: 600;
-            color: #1a1a1a;
-            letter-spacing: 2px;
-            margin-top: 8px;
-        }
-
-        .progress-bar {
-            width: 75%;
-            height: 4px;
-            background-color: #e6e6e6;
-            border-radius: 2px;
-            margin: 22px auto 0;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            width: 100%;
-            height: 100%;
-            background-color: #0057ff;
-            transition: width 1s linear;
-        }
-
-        .expire-text {
-            font-size: 13px;
-            color: #777;
-            margin-top: 10px;
-        }
-
-        .flags {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .flags img {
-            width: 48px;
-            border-radius: 5px;
-        }
-
-        #close_qr {
-            background: none;
-            border: none;
-            color: #0057ff;
-            font-size: 16px;
-            margin-top: 40px;
-            cursor: pointer;
-        }
 
         /* === Dolny pasek === */
         .bottom_bar {
@@ -247,7 +195,7 @@
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: space-between; 
             padding: 15px;
             transition: 0.15s;
             cursor: pointer;
@@ -320,25 +268,31 @@
 
     <!-- === MODAL QR === -->
     <div id="qr_modal">
-        <p class="qr_title">Pokaż kod QR</p>
-        <p class="qr_subtitle">Poproś osobę, której przekazujesz dokument, aby zeskanowała lub przepisała ten kod w swojej aplikacji mObywatel.</p>
+  <p class="qr_title">Pokaż kod QR</p>
+  <p class="qr_subtitle">
+    Poproś osobę, której przekazujesz dokument, aby zeskanowała lub przepisała ten kod w swojej aplikacji mObywatel.
+  </p>
 
+  <!-- Karta z QR i numerem -->
+    <div class="qr_card">
         <div id="qrcode"></div>
         <div class="code-number" id="codeNumber">000000</div>
 
         <div class="progress-bar">
-            <div class="progress-fill" id="progressFill"></div>
+        <div class="progress-fill" id="progressFill"></div>
         </div>
 
         <p class="expire-text" id="expireText">Kod wygaśnie za: 3 min 00 sek</p>
-
-        <div class="flags">
-            <img src="images/gzot1Pt.gif" alt="Flaga Polski">
-            <img src="images/R5yccCK.gif" alt="Godło RP">
-        </div>
-
-        <button id="close_qr">← Wróć</button>
     </div>
+
+    <div class="flags">
+        <img src="images/gzot1Pt.gif" alt="Flaga Polski">
+        <img src="images/R5yccCK.gif" alt="Godło RP">
+    </div>
+
+    <button id="close_qr">← Wróć</button>
+    </div>
+
 
     <!-- === DOLNY PASEK === -->
     <div class="bottom_bar">
