@@ -235,22 +235,54 @@
             background: #e8ecff;
         }
 
-        /* Dostosowanie do mniejszych ekranów */
-        @media (max-height: 720px) {
-            #qrcode {
-                width: 150px;
-                height: 150px;
-            }
-            .code-number {
-                font-size: 22px;
-            }
-            .flags img {
-                width: 34px;
-            }
-            #close_qr {
-                margin-top: 30px;
-                font-size: 14px;
-            }
+        .action_grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .action {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            transition: 0.15s;
+            cursor: pointer;
+        }
+
+        .action:hover {
+            background: #f1f4ff;
+        }
+
+        .action_left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .action_image {
+            width: 36px;
+            height: 36px;
+        }
+
+        .action_title {
+            font-size: 16px;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .action_subtitle {
+            font-size: 13px;
+            color: #777;
+            margin: 0;
+        }
+
+        .arrow {
+            width: 18px;
+            opacity: 0.5;
         }
     </style>
 </head>
